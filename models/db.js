@@ -4,7 +4,7 @@ const dbConnection = mysql2.createConnection({
   host: "localhost",
   user: "root",
   password: "",
-  database: "perfumester",
+  database: "perfumster",
 });
 
 dbConnection.connect((err) => {
@@ -15,7 +15,16 @@ dbConnection.connect((err) => {
   }
 });
 
-// dbConnection.query(createSubscriptionsTable, (err, result) => {
+const createTable = `
+CREATE TABLE IF NOT EXISTS newpage (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  section VARCHAR(255) NOT NULL,
+  subsection VARCHAR(255),
+  content TEXT NOT NULL
+);
+`;
+
+// dbConnection.query(createTable, (err, result) => {
 //   if (err) {
 //     console.log("Error creating subscriptions table", err);
 //   } else {

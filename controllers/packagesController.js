@@ -1,6 +1,7 @@
 const database = require("../models/db");
 
 const getAllPackages = (req, res) => {
+  console.log("Retrieving Products");
   const response = database.db.query("SELECT * FROM packages", (err, rows) => {
     if (err) {
       res.status(500).json({ error: "Internal Server Error" });

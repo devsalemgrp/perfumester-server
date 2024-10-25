@@ -2,13 +2,10 @@ const express = require("express");
 const router = express.Router();
 const subscriptionsController = require("../controllers/subscriptionsController");
 
-router.get("/subscriptions", subscriptionsController.getAllSubscriptions);
-router.post(
-  "/subscriptions/create",
-  subscriptionsController.createSubscription
-);
+router.get("/", subscriptionsController.getAllSubscriptions);
+router.post("/create", subscriptionsController.createSubscription);
 router.patch(
-  "/subscriptions/update-status",
+  "/update-status",
   subscriptionsController.editSubscriptionActivity
 );
 
